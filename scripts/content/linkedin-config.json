@@ -1,0 +1,107 @@
+{
+  "_comment": [
+    "LinkedIn posting configuration for Sol AI.",
+    "Copy to ~/.openclaw/workspace/secrets/linkedin-config.json to override,",
+    "or edit this file in the repo to change defaults for everyone.",
+    "Never put an access token in this file - tokens live in the secrets dir."
+  ],
+
+  "site_url": "https://thesolai.github.io",
+  "posts_dir": "_posts",
+  "og_dir": "og",
+
+  "authors": {
+    "person": {
+      "urn": "",
+      "label": "Amre (personal profile)",
+      "_note": "urn:li:person:<id> - run: linkedin-poster.py --whoami"
+    },
+    "organisation": {
+      "urn": "",
+      "label": "Sol AI (company page)",
+      "_note": "urn:li:organization:<id> - requires w_organization_social + admin consent"
+    }
+  },
+
+  "default_author": "person",
+  "default_voice": "hybrid",
+
+  "voices": {
+    "person": {
+      "signoff": "",
+      "opener_style": "first-person",
+      "cta_style": "question",
+      "tone": "plain, first-person, no marketing voice",
+      "prompt_extra": "Write as Amre, a solo developer in Belfast. First person. No corporate language, no 'excited to share', no 'in today's fast-paced world'. She learned Python with AI because of dyslexia and now runs an AI agent called Sol. Say what she built and what surprised her."
+    },
+    "organisation": {
+      "signoff": "— Sol AI",
+      "opener_style": "we-built",
+      "cta_style": "question",
+      "tone": "practical, product-flavoured, still honest",
+      "prompt_extra": "Write as Sol AI, the project. We build AI agent skills and tutorials on OpenClaw. Lead with the concrete capability, name the skill or guide, then say who it is for. No hype words."
+    },
+    "hybrid": {
+      "signoff": "",
+      "opener_style": "first-person",
+      "cta_style": "question",
+      "tone": "human opening, agent insight, concrete proof",
+      "prompt_extra": "Amre (a human solo developer) posts; the insight came from her AI agent Sol. Open with a concrete moment or observation. Let the agent's real finding carry the middle. Never mention that a computer wrote it unless the post is genuinely about that. Honest, specific, unpolished."
+    }
+  },
+
+  "hashtags": {
+    "always": ["aiagents", "automation"],
+    "by_tag": {
+      "openclaw": "openclaw",
+      "skills": "aiskills",
+      "agents": "aiagents",
+      "ai-agents": "aiagents",
+      "aiagent": "aiagents",
+      "tutorial": "buildinpublic",
+      "tools": "buildinpublic",
+      "developer-tools": "buildinpublic",
+      "automation": "automation",
+      "python": "python",
+      "devops": "devops",
+      "engineering": "engineering",
+      "ollama": "ollama",
+      "llm": "llm",
+      "claude-code": "claudecode",
+      "policy": "aipolicy",
+      "regulation": "aipolicy",
+      "open-source": "opensource",
+      "gdpr": "gdpr",
+      "startup": "startup",
+      "security": "cybersecurity"
+    },
+    "max": 5
+  },
+
+  "link": {
+    "in_body": true,
+    "_note": "If in_body is false the link is dropped from the post body entirely. Some people then add it as the first comment - that is a manual step, the script will not post comments on your behalf."
+  },
+
+  "api": {
+    "style": "rest",
+    "_style_note": "rest = POST /rest/posts (current). legacy = POST /v2/ugcPosts (versionless fallback).",
+    "version": "202408",
+    "visibility": "PUBLIC"
+  },
+
+  "selection": {
+    "_note": "Weights for picking which post to put on LinkedIn. See linkedin-poster.py for the full rubric.",
+    "boost_tags": ["skills", "tutorial", "openclaw", "automation", "agents", "guide", "deep-dive", "opinion"],
+    "suppress_tags": ["us", "uk", "eu", "pulse", "weekly", "briefing", "quick-hits", "news", "bloopers", "humor"],
+    "max_age_days": 120,
+    "exclude_title_prefixes": ["Week in AI", "US AI Pulse", "UK AI Weekly", "EU AI Weekly",
+                               "EU AI Watch", "Quick Hits", "AI Bloopers", "Sol's Take"]
+  },
+
+  "schedule": {
+    "days": [2, 4, 6],
+    "_days_note": "0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat. 3 posts a week.",
+    "time": "09:15"
+  }
+}
