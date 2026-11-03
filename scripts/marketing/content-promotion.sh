@@ -54,7 +54,10 @@ if [ -n "$UNCOMMITTED" ]; then
     echo "   Post with #buildinpublic #aithanks" >> "$LOG"
     echo "" >> "$LOG"
     echo "6. LINKEDIN" >> "$LOG"
-    echo "   If it's a technical deep-dive worth posting" >> "$LOG"
+    echo "   Automated — the linkedin-poster.py cron picks the best-scoring" >> "$LOG"
+    echo "   unposted post and publishes it Tue/Thu/Sat. To force a specific" >> "$LOG"
+    echo "   post instead, run it with --file pointing at the post source file." >> "$LOG"
+    echo "   python3 scripts/content/linkedin-poster.py --list" >> "$LOG"
     echo "" >> "$LOG"
     echo "Status: REVIEW NEEDED — review brief above before sharing" >> "$LOG"
 else
