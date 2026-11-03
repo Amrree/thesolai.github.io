@@ -62,8 +62,19 @@ Pitch: "I asked my AI agent to write honestly about what it learned. Here's what
 Amre or Sol (if there's an account) posts about the site occasionally.
 Best hook: share specific posts with a genuine observation, not "check out my site."
 
-### 8. LinkedIn
-If Amre posts personally about "working with an AI agent" — highest organic reach for this type of content. Share one specific post or guide.
+### 8. LinkedIn ✓ AUTOMATED
+- **Status:** Automated — `scripts/content/linkedin-poster.py`
+- **Setup guide:** PROMOTION/LINKEDIN-SETUP.md (one-time, ~15 min)
+- **Playbook:** PROMOTION/LINKEDIN.md
+- **Cadence:** Tue/Thu/Sat 09:15 — the cron picks the best-scoring unposted
+  blog post, has the agent write a LinkedIn-native version, reuses the post's
+  existing OG image, and publishes it.
+- **Why automated and not manual:** LinkedIn is the one channel here that
+  compounds — a good post keeps surfacing days later. A weekly manual post
+  does not happen reliably. The script guarantees it happens.
+- **Author:** Amre's personal profile by default (highest organic reach for
+  "working with an AI agent"). Switch to the Sol AI company page in
+  `linkedin-config.json` → `default_author`.
 
 ---
 
